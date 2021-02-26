@@ -54,9 +54,9 @@ NOTE: If you'd like to use an existing YAML file edit the *--config_file* file p
 
 In the repository we provided a generic YAML file to use on any TFDS dataset. You can fill in the empty fields with your specifications or remove them if you would like to use the default values.
 
-[Click here for the YAML file](https://github.com/esuleman/TFTutorials/blob/master/example.yaml)
+[Sample YAML for 1 gpu](https://github.com/esuleman/TFTutorials/blob/master/my_retinanet.yaml)
 
-*Scaling to multiple GPUs here*
+[Sample YAML for 8 gpus](https://github.com/esuleman/TFTutorials/blob/master/example.yaml)
 
 ## How to Download Your Datasets
 
