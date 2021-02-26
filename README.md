@@ -88,7 +88,7 @@ In terminal, first change your working directory to **~/models**, and then use t
 python3 -m official.vision.beta.train --model_dir="<Directory to model>" --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file=<Path to custom YAML>
 ```
 
-When completed, it will store your finished model in **\<Directory to model\>**.
+When completed, it will store your finished model in **\<Directory to model\>**
 
 To evaluate your model use the following command:
 
