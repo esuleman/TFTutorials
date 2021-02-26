@@ -1,8 +1,6 @@
 # Train RetinaNet with COCO
 
-## Downloading TensorFlow Models
-
-Prior to training RetinaNet we will need to download the TensorFlow Models repository.
+## Downloading the TensorFlow Models Repository
 
 In terminal, execute the following two commands. 
 
@@ -25,77 +23,65 @@ pip3 install -r ~/models/official/requirements.txt
 
 **Ensure your TensorFlow, Numpy, and Pycocotools versions are compatible.**
 
-## Linking a working YAML
+## How to Run Commands
 
-Now that we have TensorFlow models all set up, we can use the training scripts provided to us with the COCO dataset and train a RetinaNet model. In **~/models** create and open a file named *my_retinanet.yaml*. Here we will set up the variables needed for training and evaluation.
+In terminal, first change your working directory to **~/models**, and then use the following command:
 
-Here is an example YAML file for training RetinaNet using a single GPU. 
-
-```yaml
-# my_retinanet.yaml
-runtime:
-  distribution_strategy: 'one_device'
-  num_gpus: 1
-  mixed_precision_dtype: 'float32'
-  train_data:
-    tfds_data_dir: <Directory to tensorflow_datasets>
-    tfds_name: 'coco'
-    tfds_split: 'train'
-    drop_remainder: true
-    dtype: float32
-    global_batch_size: <Change to suit machine>
-    is_training: true
-  validation_data:
-    tfds_data_dir: <Directory to tensorflow_datasets>
-    tfds_name: 'coco'
-    tfds_split: 'validation'
-    drop_remainder: true
-    dtype: float32
-    global_batch_size: <Change to suit machine>
-    is_training: false
+```bash
+python3 -m official.vision.beta.train --model_dir=<Directory to model> --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file="official.vision.beta.configs.experiments.retinanet.resnet50fpn_coco_tfds_tp.yaml"
 ```
 
-Here is an example YAML file for training RetinaNet using 8 GPUs. 
+When completed, it will store your finished model in **\<Directory to model\>**
 
-```yaml
-# my_retinanet.yaml
-runtime:
-  distribution_strategy: 'mirrored'
-  num_gpus: 8
-  mixed_precision_dtype: 'float32'
-  train_data:
-    tfds_data_dir: <Directory to tensorflow_datasets>
-    tfds_name: 'coco'
-    tfds_split: 'train'
-    drop_remainder: true
-    dtype: float32
-    global_batch_size: <Change to suit machine>
-    is_training: true
-  validation_data:
-    tfds_data_dir: <Directory to tensorflow_datasets>
-    tfds_name: 'coco'
-    tfds_split: 'validation'
-    drop_remainder: true
-    dtype: float32
-    global_batch_size: <Change to suit machine>
-    is_training: false
+## How to Link a Working YAML
+
+In the repository we provided a generic YAML file to use on any TFDS dataset. Fill in the blanks for your specific TensorFlow Dataset.
+
+*Scaling to multiple GPUs here*
+
+## How to Download Your Datasets
+
+### COCO
+
+To get started, you'll need both TensorFlow and TensorFlow-Datasets installed. 
+
+```bash
+pip install tensorflow
+pip install tensorflow-datasets
 ```
 
-## CLI Commands to Train and Evaluate Model
+Be sure to have Python version 3.5 - 3.8
+
+TensorFlow-Datasets allows you to download and store datasets using the provided load() function. To download COCO, we will first need to activate the Python Console.
+
+```bash
+python3
+```
+
+Once you're there, run the following two commands.
+
+```python
+import tensorflow_datasets as tfds
+
+tfds.load('COCO')
+```
+
+This will download and store the COCO dataset in **~/tensorflow_datasets/coco**
+
+Note that: COCO is about 40.1 GB large
+
+### ImageNet
+
+[Click here for a tutorial on how to download and properly extract ImageNet.](https://cloud.google.com/tpu/docs/imagenet-setup)
+
+## How to Run Commands With Custom YAML File
 
 Now that we have our YAML file set up, we can start the training process.
 
 In terminal, first change your working directory to **~/models**, and then use the following command:
 
 ```bash
-python3 -m official.vision.beta.train --model_dir=".myRetinaNetModel.model" --mode=train --experiment=retinanet_resnetfpn_coco --config_file="my_retinanet.yaml"
+python3 -m official.vision.beta.train --model_dir=".myRetinaNetModel.model" --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file=<Path to YAML>
 ```
 
 When completed, it will store your finished model in **~/models/myRetinaNetModel/model**.
-
-The following command will run an evaluation of the model:
-
-```bash
-python3 -m official.vision.beta.train --model_dir=".myRetinaNetModel.model" --mode=eval --experiment=retinanet_resnetfpn_coco --config_file="my_retinanet.yaml"
-```
-
