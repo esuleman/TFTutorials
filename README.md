@@ -76,7 +76,7 @@ TensorFlow-Datasets allows you to download and store datasets using the provided
 ```python
 import tensorflow_datasets as tfds
 
-tfds.load('coco/2017')
+tfds.load('coco/2017', split = 'train')
 ```
 
 This will download and store the COCO dataset in **~/tensorflow_datasets/coco**
@@ -108,7 +108,7 @@ To test if ImageNet is properly loaded, simply enter the Python Console and ente
 ```python
 import tensorflow_datasets as tfds
 
-tfds.load('imagenet2012')
+tfds.load('imagenet2012', split = 'train')
 ```
 
 NOTE: [ImageNet](https://www.tensorflow.org/datasets/catalog/imagenet2012) is 155.84 GB large. It is suggested to have 300GB of free storage prior to installation. 
