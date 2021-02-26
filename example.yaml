@@ -1,9 +1,10 @@
 # example.yaml
 runtime:
   distribution_strategy: 'mirrored'
-  num_gpus: 
+  num_gpus: <int>
   mixed_precision_dtype: 'float16'
 task:
+  annotation_file: ''  # Can't use annotation file when tfds is used.
   losses:
     l2_weight_decay: 
   model:
