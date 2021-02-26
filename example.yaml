@@ -1,7 +1,8 @@
 # example.yaml
+
 runtime:
   distribution_strategy: 'mirrored'
-  num_gpus: <int>
+  num_gpus: 
   mixed_precision_dtype: 'float16'
 task:
   annotation_file: ''  # Can't use annotation file when tfds is used.
@@ -23,8 +24,9 @@ task:
     tfds_split: 'train'
     drop_remainder: 
     dtype: float16
-    global_batch_size: 8
+    global_batch_size: 
     input_path: 
+    shuffle_buffer_size:
     is_training: true
   validation_data:
     tfds_data_dir: 
@@ -32,6 +34,23 @@ task:
     tfds_split: 'validation'
     drop_remainder: 
     dtype: float16
-    global_batch_size: 8
+    global_batch_size: 
     input_path: 
+    shuffle_buffer_size: 
     is_training: false
+trainer:
+  checkpoint_interval: 
+  optimizer_config:
+    learning_rate:
+      stepwise:
+        boundaries: 
+        values: 
+      type: 
+    warmup:
+      linear:
+        warmup_learning_rate: 
+        warmup_steps: 
+  steps_per_loop: 
+  train_steps: 
+  validation_interval: 
+  validation_steps: 
