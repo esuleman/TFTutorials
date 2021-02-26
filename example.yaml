@@ -1,21 +1,36 @@
-# my_retinanet.yaml
+# example.yaml
 runtime:
   distribution_strategy: 'one_device'
   num_gpus: 1
   mixed_precision_dtype: 'float32'
+task:
+  losses:
+    l2_weight_decay: 
+  model:
+    num_classes: 
+    max_level: 
+    min_level: 
+    input_size: 
+    norm_activation:
+      activation: 
+      norm_epsilon: 
+      norm_momentum: 
+      use_sync_bn: 
   train_data:
-    tfds_data_dir: <Directory to tensorflow_datasets>
-    tfds_name: 'coco'
+    tfds_data_dir: 
+    tfds_name: 
     tfds_split: 'train'
-    drop_remainder: true
+    drop_remainder: 
     dtype: float32
-    global_batch_size: <Change to suit machine>
+    global_batch_size: 8
+    input_path: ''
     is_training: true
   validation_data:
-    tfds_data_dir: <Directory to tensorflow_datasets>
-    tfds_name: 'coco'
+    tfds_data_dir: 
+    tfds_name: 
     tfds_split: 'validation'
-    drop_remainder: true
+    drop_remainder: 
     dtype: float32
-    global_batch_size: <Change to suit machine>
+    global_batch_size: 8
+    input_path: ''
     is_training: false
