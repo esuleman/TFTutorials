@@ -1,0 +1,37 @@
+# my_retinanet.yaml
+runtime:
+  distribution_strategy: 'one_device'
+  num_gpus: 1
+  mixed_precision_dtype: 'float32'
+task:
+  annotation_file: ''
+  losses:
+    l2_weight_decay: 0.0001
+  model:
+    num_classes: 91
+    max_level: 7
+    min_level: 3
+    input_size: [640, 640, 3]
+    norm_activation:
+      activation: relu
+      norm_epsilon: 0.001
+      norm_momentum: 0.99
+      use_sync_bn: true
+  train_data:
+    tfds_data_dir: '/home/cam2tf_tutorials/tensorflow_datasets'
+    tfds_name: 'coco'
+    tfds_split: 'train'
+    drop_remainder: true
+    dtype: float32
+    global_batch_size: 8
+    input_path: ''
+    is_training: true
+  validation_data:
+    tfds_data_dir: '/home/cam2tf_tutorials/tensorflow_datasets'
+    tfds_name: 'coco'
+    tfds_split: 'validation'
+    drop_remainder: true
+    dtype: float32
+    global_batch_size: 8
+    input_path: ''
+    is_training: false
