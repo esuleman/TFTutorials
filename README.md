@@ -25,10 +25,12 @@ pip3 install -r ~/models/official/requirements.txt
 
 ## How to Run Commands
 
-In terminal, first change your working directory to **~/models**, and then run the following command:
+In terminal first change your working directory to **~/models**, and then run the following commands:
 
 ```bash
-python3 -m official.vision.beta.train --model_dir=<Directory to model> --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file="official.vision.beta.configs.experiments.retinanet.resnet50fpn_coco_tfds_tp.yaml"
+wget https://raw.githubusercontent.com/esuleman/TFTutorials/master/my_retinanet.yaml
+
+python3 -m official.vision.beta.train --model_dir=<Directory to model> --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file="my_retinanet.yaml"
 ```
 
 When completed, it will store your finished model in **\<Directory to model\>**
@@ -36,10 +38,24 @@ When completed, it will store your finished model in **\<Directory to model\>**
 To evaluate your model use the following command:
 
 ```bash
-python3 -m official.vision.beta.train --model_dir=<Directory to model> --mode=eval --experiment=retinanet_resnetfpn_coco --config_file="official.vision.beta.configs.experiments.retinanet.resnet50fpn_coco_tfds_tp.yaml"
+python3 -m official.vision.beta.train --model_dir=<Directory to model> --mode=eval --experiment=retinanet_resnetfpn_coco --config_file="my_retinanet.yaml"
 ```
 
-**Note: These YAML files are configured for training on a TPU**
+### How to Run Commands With Custom YAML File
+
+In terminal, first change your working directory to **~/models**, and then use the following command:
+
+```bash
+python3 -m official.vision.beta.train --model_dir="<Directory to model>" --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file=<Path to custom YAML>
+```
+
+When completed, it will store your finished model in **\<Directory to model\>**
+
+To evaluate your model use the following command:
+
+```bash
+python3 -m official.vision.beta.train --model_dir="<Directory to model>" --mode=eval --experiment=retinanet_resnetfpn_coco --config_file=<Path to custom YAML>
+```
 
 ## Editing YAML file
 
@@ -70,7 +86,7 @@ tfds.load('coco/2017')
 
 This will download and store the coco dataset in **~/tensorflow_datasets/coco**
 
-Note that: coco is 25.20 GB large. 
+NOTE: coco is 25.20 GB large. 
 
 ### ImageNet
 
@@ -100,23 +116,7 @@ import tensorflow_datasets as tfds
 tfds.load('imagenet2012')
 ```
 
-Note that: ImageNet is 155.84 GB large. It is suggested to have 300GB of storage. 
+NOTE: ImageNet is 155.84 GB large. It is suggested to have 300GB of storage. 
 
-## How to Run Commands With Custom YAML File
-
-Now that we have our YAML file set up, we can start the training process.
-
-In terminal, first change your working directory to **~/models**, and then use the following command:
-
-```bash
-python3 -m official.vision.beta.train --model_dir="<Directory to model>" --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file=<Path to custom YAML>
-```
-
-When completed, it will store your finished model in **\<Directory to model\>**
-
-To evaluate your model use the following command:
-
-```bash
-python3 -m official.vision.beta.train --model_dir="<Directory to model>" --mode=eval --experiment=retinanet_resnetfpn_coco --config_file=<Path to custom YAML>
-```
+NOTE: When running on a distributed system (Large scale TPU or a GPU cluster) TensorFlow-Datasets restricts the amount of shards to at most eight nodes. This means that you can only have eight distributed replicas at the same time.
 
