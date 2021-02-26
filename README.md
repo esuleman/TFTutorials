@@ -74,7 +74,31 @@ Note that: COCO is about 40.1 GB large
 
 ### ImageNet
 
-[Click here for a tutorial on how to download and properly extract ImageNet.](https://cloud.google.com/tpu/docs/imagenet-setup)
+Visit this website: http://www.image-net.org/challenges/LSVRC/2012/downloads
+
+You will need to register for an account and get a valid ID. Once you get an ID, run the following commands:
+
+```bash
+export PATH_TO_TFDS=~/tensorflow_datasets <or wherever your tensorflow_datasets folder is>
+export DOWNLOADS_DOWNLOAD_DIR=$PATH_TO_TFDS/downloads
+export MANUAL_DOWNLOAD_DIR=$PATH_TO_TFDS/downloads/manual
+
+wget http://image-net.org/challenges/LSVRC/2012/dd31405981ef5f776aa17412e1f0c112/ILSVRC2012_img_train.tar
+wget http://image-net.org/challenges/LSVRC/2012/dd31405981ef5f776aa17412e1f0c112/ILSVRC2012_img_test.tar
+wget http://image-net.org/challenges/LSVRC/2012/dd31405981ef5f776aa17412e1f0c112/ILSVRC2012_img_val.tar
+
+python3 -m tensorflow_datasets.scripts.download_and_prepare --datasets=imagenet2012 --data_dir=$PATH_TO_TFDS --download_dir=$DOWNLOADS_DOWNLOAD_DIR --manual_dir=$MANUAL_DOWNLOAD_DIR
+```
+
+This will result in an ImageNet datasets in the tfrecord format that is compatible with TensorFlow-Datasets.
+
+To test if ImageNet is properly loaded, simply enter the Python Console and enter the following commands:
+
+```python
+import tensorflow_datasets as tfds
+
+tfds.load('imagenet2012')
+```
 
 ## How to Run Commands With Custom YAML File
 
