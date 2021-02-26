@@ -13,17 +13,17 @@ Once the repository is downloaded, add **~/models** to your *PythonPath*. Add th
 export PYTHONPATH=$PYTHONPATH:~/models
 ```
 
-We will also download all of the TensorFlow Models' requirements using:
+We will also download the TensorFlow Models' requirements using:
 
 ```bash
 pip3 install -r ~/models/official/requirements.txt
 ```
 
-**Ensure your TensorFlow, Numpy, and Pycocotools versions are compatible.**
+**Ensure your TensorFlow, Numpy, and PyCocoTools versions are compatible.**
 
 ## How to Run Commands
 
-In terminal, first change your working directory to **~/models**, and then use the following command:
+In terminal, first change your working directory to **~/models**, and then run the following command:
 
 ```bash
 python3 -m official.vision.beta.train --model_dir=<Directory to model> --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file="official.vision.beta.configs.experiments.retinanet.resnet50fpn_coco_tfds_tp.yaml"
@@ -33,7 +33,7 @@ When completed, it will store your finished model in **\<Directory to model\>**
 
 ## How to Link a Working YAML
 
-In the repository we provided a generic YAML file to use on any TFDS dataset. Fill in the blanks for your specific TensorFlow Dataset.
+In the repository we provided a generic YAML file to use on any TFDS dataset. Fill it in to work with your specific TensorFlow Dataset.
 
 *Scaling to multiple GPUs here*
 
@@ -79,7 +79,7 @@ Now that we have our YAML file set up, we can start the training process.
 In terminal, first change your working directory to **~/models**, and then use the following command:
 
 ```bash
-python3 -m official.vision.beta.train --model_dir=".myRetinaNetModel.model" --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file=<Path to YAML>
+python3 -m official.vision.beta.train --model_dir="<Directory to model>" --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file=<Path to custom YAML>
 ```
 
-When completed, it will store your finished model in **~/models/myRetinaNetModel/model**.
+When completed, it will store your finished model in **\<Directory to model\>**.
