@@ -34,12 +34,16 @@ When completed, it will store your finished model in **\<Directory to model\>**
 To evaluate your model use the following command:
 
 ```bash
-python3 -m official.vision.beta.train --model_dir=<Directory to model> --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file="official.vision.beta.configs.experiments.retinanet.resnet50fpn_coco_tfds_tp.yaml"
+python3 -m official.vision.beta.train --model_dir=<Directory to model> --mode=eval --experiment=retinanet_resnetfpn_coco --config_file="official.vision.beta.configs.experiments.retinanet.resnet50fpn_coco_tfds_tp.yaml"
 ```
 
-## How to Link a Working YAML
+**Note: These YAML files are configured for training on a TPU**
 
-In the repository we provided a generic YAML file to use on any TFDS dataset. Fill it in to work with your specific TensorFlow Dataset.
+## Editing YAML file
+
+In the repository we provided a generic YAML file to use on any TFDS dataset. You can fill in the empty fields with your specifications or remove them if you would like to use the default values.
+
+[Click here for the YAML file](https://github.com/esuleman/TFTutorials/blob/master/example.yaml)
 
 *Scaling to multiple GPUs here*
 
@@ -56,21 +60,15 @@ pip install tensorflow-datasets
 
 Be sure to have Python version 3.5 - 3.8
 
-TensorFlow-Datasets allows you to download and store datasets using the provided load() function. To download COCO, we will first need to activate the Python Console.
-
-```bash
-python3
-```
-
-Once you're there, run the following two commands.
+TensorFlow-Datasets allows you to download and store datasets using the provided load() function. To download COCO, we will first need to activate the Python Console. Once you're there, run the following two commands.
 
 ```python
 import tensorflow_datasets as tfds
 
-tfds.load('COCO')
+tfds.load('coco/2017')
 ```
 
-This will download and store the COCO dataset in **~/tensorflow_datasets/coco**
+This will download and store the coco dataset in **~/tensorflow_datasets/coco**
 
 Note that: COCO is about 40.1 GB large
 
