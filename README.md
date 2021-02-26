@@ -1,5 +1,3 @@
-# Train RetinaNet with COCO
-
 ## Downloading the TensorFlow Models Repository
 
 In terminal, execute the following two commands. 
