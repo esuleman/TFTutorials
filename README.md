@@ -1,6 +1,6 @@
 ## Downloading the TensorFlow Models Repository
 
-Before starting ensure you have a Python version between 3.5 - 3.8.7.
+Before starting ensure you have a Python version between 3.5 - 3.8.7. This tutorial is written in a bash terminal.
 
 In terminal, execute the following two commands. 
 
@@ -79,7 +79,7 @@ Visit this website: http://www.image-net.org/challenges/LSVRC/2012/downloads
 You will need to register for an account and get a valid ID. Once you get an ID, run the following commands:
 
 ```bash
-export PATH_TO_TFDS=~/tensorflow_datasets <or wherever your tensorflow_datasets folder is>
+export PATH_TO_TFDS=<Path to tensorflow_datasets directory>
 export DOWNLOADS_DOWNLOAD_DIR=$PATH_TO_TFDS/downloads
 export MANUAL_DOWNLOAD_DIR=$PATH_TO_TFDS/downloads/manual
 
