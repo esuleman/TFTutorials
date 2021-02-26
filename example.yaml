@@ -1,8 +1,8 @@
 # example.yaml
 runtime:
-  distribution_strategy: 'one_device'
-  num_gpus: 1
-  mixed_precision_dtype: 'float32'
+  distribution_strategy: 'mirrored'
+  num_gpus: 
+  mixed_precision_dtype: 'float16'
 task:
   losses:
     l2_weight_decay: 
@@ -21,16 +21,16 @@ task:
     tfds_name: 
     tfds_split: 'train'
     drop_remainder: 
-    dtype: float32
+    dtype: float16
     global_batch_size: 8
-    input_path: ''
+    input_path: 
     is_training: true
   validation_data:
     tfds_data_dir: 
     tfds_name: 
     tfds_split: 'validation'
     drop_remainder: 
-    dtype: float32
+    dtype: float16
     global_batch_size: 8
-    input_path: ''
+    input_path: 
     is_training: false
