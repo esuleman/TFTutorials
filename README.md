@@ -1,6 +1,13 @@
-## Downloading the TensorFlow Models Repository
+## Installation
 
-Before starting ensure you have a Python version between 3.5 - 3.8.7. This tutorial is written in a bash terminal.
+This tutorial requires:
+
+- Python 3.6 - 3.8.7
+- TensorFlow 2.4
+
+and the requirements highlighted in [requirements.txt](https://github.com/tensorflow/models/blob/master/official/requirements.txt).
+
+## Downloading the TensorFlow Models Repository
 
 In terminal, execute the following two commands. 
 
@@ -41,21 +48,7 @@ To evaluate your model use the following command:
 python3 -m official.vision.beta.train --model_dir=<Directory to model> --mode=eval --experiment=retinanet_resnetfpn_coco --config_file="my_retinanet.yaml"
 ```
 
-### How to Run Commands With Custom YAML File
-
-In terminal, first change your working directory to **~/models**, and then use the following command:
-
-```bash
-python3 -m official.vision.beta.train --model_dir="<Directory to model>" --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file=<Path to custom YAML>
-```
-
-When completed, it will store your finished model in **\<Directory to model\>**
-
-To evaluate your model use the following command:
-
-```bash
-python3 -m official.vision.beta.train --model_dir="<Directory to model>" --mode=eval --experiment=retinanet_resnetfpn_coco --config_file=<Path to custom YAML>
-```
+NOTE: If you'd like to use an existing YAML file edit the *--config_file* file parameter to the path of your existing YAML file.
 
 ## Editing YAML file
 
@@ -67,7 +60,7 @@ In the repository we provided a generic YAML file to use on any TFDS dataset. Yo
 
 ## How to Download Your Datasets
 
-### coco
+### COCO
 
 To get started, you'll need both TensorFlow and TensorFlow-Datasets installed. 
 
@@ -84,13 +77,13 @@ import tensorflow_datasets as tfds
 tfds.load('coco/2017')
 ```
 
-This will download and store the coco dataset in **~/tensorflow_datasets/coco**
+This will download and store the COCO dataset in **~/tensorflow_datasets/coco**
 
-NOTE: coco is 25.20 GB large. 
+NOTE: [COCO](https://www.tensorflow.org/datasets/catalog/coco) is 25.20 GB large. 
 
 ### ImageNet
 
-Visit this website: http://www.image-net.org/challenges/LSVRC/2012/downloads
+Visit the [Official ImageNet Website]( http://www.image-net.org/challenges/LSVRC/2012/downloads)
 
 You will need to register for an account and get a valid ID. Once you get an ID, run the following commands:
 
@@ -116,7 +109,7 @@ import tensorflow_datasets as tfds
 tfds.load('imagenet2012')
 ```
 
-NOTE: ImageNet is 155.84 GB large. It is suggested to have 300GB of storage. 
+NOTE: [ImageNet](https://www.tensorflow.org/datasets/catalog/imagenet2012) is 155.84 GB large. It is suggested to have 300GB of storage. 
 
 NOTE: When running on a distributed system (Large scale TPU or a GPU cluster) TensorFlow-Datasets restricts the amount of shards to at most eight nodes. This means that you can only have eight distributed replicas at the same time.
 
