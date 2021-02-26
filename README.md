@@ -99,7 +99,7 @@ wget http://image-net.org/challenges/LSVRC/2012/dd31405981ef5f776aa17412e1f0c112
 python3 -m tensorflow_datasets.scripts.download_and_prepare --datasets=imagenet2012 --data_dir=$PATH_TO_TFDS --download_dir=$DOWNLOADS_DOWNLOAD_DIR --manual_dir=$MANUAL_DOWNLOAD_DIR
 ```
 
-This will result in an ImageNet datasets in the .tfrecord format that is compatible with TensorFlow-Datasets.
+This will result in an ImageNet dataset in the .tfrecord format that is compatible with TensorFlow-Datasets.
 
 To test if ImageNet is properly loaded, simply enter the Python Console and enter the following commands:
 
@@ -109,7 +109,7 @@ import tensorflow_datasets as tfds
 tfds.load('imagenet2012')
 ```
 
-NOTE: [ImageNet](https://www.tensorflow.org/datasets/catalog/imagenet2012) is 155.84 GB large. It is suggested to have 300GB of storage. 
+NOTE: [ImageNet](https://www.tensorflow.org/datasets/catalog/imagenet2012) is 155.84 GB large. It is suggested to have 300GB of free storage prior to installation. 
 
 NOTE: When running on a distributed system (Large scale TPU or a GPU cluster) TensorFlow-Datasets restricts the amount of shards to at most eight nodes. This means that you can only have eight distributed replicas at the same time.
 
