@@ -31,6 +31,12 @@ python3 -m official.vision.beta.train --model_dir=<Directory to model> --mode=tr
 
 When completed, it will store your finished model in **\<Directory to model\>**
 
+To evaluate your model use the following command:
+
+```bash
+python3 -m official.vision.beta.train --model_dir=<Directory to model> --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file="official.vision.beta.configs.experiments.retinanet.resnet50fpn_coco_tfds_tp.yaml"
+```
+
 ## How to Link a Working YAML
 
 In the repository we provided a generic YAML file to use on any TFDS dataset. Fill it in to work with your specific TensorFlow Dataset.
@@ -83,3 +89,10 @@ python3 -m official.vision.beta.train --model_dir="<Directory to model>" --mode=
 ```
 
 When completed, it will store your finished model in **\<Directory to model\>**.
+
+To evaluate your model use the following command:
+
+```bash
+python3 -m official.vision.beta.train --model_dir="<Directory to model>" --mode=eval --experiment=retinanet_resnetfpn_coco --config_file=<Path to custom YAML>
+```
+
