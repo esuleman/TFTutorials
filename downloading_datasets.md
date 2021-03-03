@@ -1,5 +1,7 @@
 ## How to Download Your Datasets
 
+This document provides a brief tutorial on downloading COCO and Imagenet2012 in TensorFlow-Datasets
+
 ### COCO
 
 To get started, you'll need both TensorFlow and TensorFlow-Datasets installed. 

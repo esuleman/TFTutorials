@@ -73,4 +73,4 @@ NOTE: At the time of writing, TensorFlow-Datasets restricts the number of shards
 
 [Editing the Config File](https://github.com/esuleman/TFTutorials/blob/master/Editing_YAML.md)
 
-[Downloading Datasets](https://github.com/esuleman/TFTutorials/blob/master/downloading_datasets.md)
+[Downloading Datasets in TFDS](https://github.com/esuleman/TFTutorials/blob/master/downloading_datasets.md)
