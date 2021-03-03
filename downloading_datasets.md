@@ -1,6 +1,6 @@
 ## How to Download Datasets in TensorFlow-Datasets
 
-This document provides a brief tutorial on downloading COCO and Imagenet2012 in TensorFlow-Datasets
+This document provides a brief tutorial on downloading [COCO](https://www.tensorflow.org/datasets/catalog/coco) and [Imagenet2012](https://www.tensorflow.org/datasets/catalog/imagenet2012) in TensorFlow-Datasets
 
 ### COCO
 
