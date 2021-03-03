@@ -44,16 +44,6 @@ python -m official.vision.beta.train --model_dir=<Directory to model> --mode=eva
 
 NOTE: If you'd like to use an existing YAML file edit the *--config_file* file parameter to the path of your existing YAML file.
 
-## Editing YAML file
-
-In the repository we provided a generic YAML file to use on any TFDS dataset. You can fill in the empty fields with your specifications or remove them if you would like to use the default values.
-
-[Example YAML](https://github.com/esuleman/TFTutorials/blob/master/example.yaml)
-
-[Sample YAML for 1 gpu](https://github.com/esuleman/TFTutorials/blob/master/my_retinanet_one_gpu.yaml)
-
-[Sample YAML for 8 gpus](https://github.com/esuleman/TFTutorials/blob/master/my_retinanet_eight_gpus.yaml)
-
 
 NOTE: When running on a distributed system (Large scale TPU or a GPU cluster) TensorFlow-Datasets restricts the amount of shards to at most eight nodes. This means that you can only have eight distributed replicas at the same time.
 
