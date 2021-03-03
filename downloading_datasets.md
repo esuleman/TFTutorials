@@ -31,7 +31,7 @@ You will need to register for an account and get a valid ID. Once you get an ID,
 export PATH_TO_TFDS=<Path to tensorflow_datasets directory>
 export DOWNLOADS_DOWNLOAD_DIR=$PATH_TO_TFDS/downloads
 export MANUAL_DOWNLOAD_DIR=$PATH_TO_TFDS/downloads/manual
-export ID=**<Your ID here>**
+export ID=<Your ID here>
 
 wget -c http://image-net.org/challenges/LSVRC/2012/$ID/ILSVRC2012_img_train.tar -O $MANUAL_DOWNLOAD_DIR/ILSVRC2012_img_train.tar
 wget -c http://image-net.org/challenges/LSVRC/2012/$ID/ILSVRC2012_img_test.tar -O $MANUAL_DOWNLOAD_DIR/ILSVRC2012_img_test.tar
