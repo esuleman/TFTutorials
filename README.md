@@ -33,7 +33,7 @@ For **one GPU**:
 ```bash
 wget https://raw.githubusercontent.com/esuleman/TFTutorials/master/retinanet_tfds_one_gpu.yaml
 
-python -m official.vision.beta.train --num-gpus 1 --model_dir=<Directory to model> --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file="retinanet_tfds_one_gpu.yaml"
+python3 -m official.vision.beta.train --num-gpus 1 --model_dir=<Directory to model> --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file="retinanet_tfds_one_gpu.yaml"
 ```
 
 For **eight GPUs**:
@@ -41,7 +41,7 @@ For **eight GPUs**:
 ```bash
 wget https://raw.githubusercontent.com/esuleman/TFTutorials/master/retinanet_tfds_eight_gpu.yaml
 
-python -m official.vision.beta.train --num-gpus 8 --model_dir=<Directory to model> --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file="retinanet_tfds_eight_gpu.yaml"
+python3 -m official.vision.beta.train --num-gpus 8 --model_dir=<Directory to model> --mode=train_eval --experiment=retinanet_resnetfpn_coco --config_file="retinanet_tfds_eight_gpu.yaml"
 ```
 
 When completed, it will store your finished model in **\<Directory to model\>**
@@ -51,13 +51,13 @@ To evaluate your model use the following two commands:
 For **one GPU**:
 
 ```bash
-python -m official.vision.beta.train --num-gpus 1 --model_dir=<Directory to model> --mode=eval --experiment=retinanet_resnetfpn_coco --config_file="retinanet_tfds_one_gpu.yaml"
+python3 -m official.vision.beta.train --num-gpus 1 --model_dir=<Directory to model> --mode=eval --experiment=retinanet_resnetfpn_coco --config_file="retinanet_tfds_one_gpu.yaml"
 ```
 
 For **eight GPUs**:
 
 ```bash
-python -m official.vision.beta.train --num-gpus 8 --model_dir=<Directory to model> --mode=eval --experiment=retinanet_resnetfpn_coco --config_file="retinanet_tfds_eight_gpu.yaml"
+python3 -m official.vision.beta.train --num-gpus 8 --model_dir=<Directory to model> --mode=eval --experiment=retinanet_resnetfpn_coco --config_file="retinanet_tfds_eight_gpu.yaml"
 ```
 
 NOTE: If you'd like to use an existing YAML file edit the *--config_file* file parameter to the path of your existing YAML file.
