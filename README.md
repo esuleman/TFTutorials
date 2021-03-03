@@ -16,16 +16,10 @@ cd ~
 git clone https://github.com/tensorflow/models.git
 ```
 
-Once the repository is downloaded, add **~/models** to your *PythonPath*. Add the following to your .bashrc file.
-
-```bash
-export PYTHONPATH=$PYTHONPATH:~/models
-```
-
 We will also download the TensorFlow Models' requirements using:
 
 ```bash
-pip3 install -r ~/models/official/requirements.txt
+pip install -r ~/models/official/requirements.txt
 ```
 
 **Ensure your TensorFlow, Numpy, and PyCocoTools versions are compatible.**

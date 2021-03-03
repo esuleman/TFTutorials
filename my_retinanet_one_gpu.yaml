@@ -18,7 +18,6 @@ task:
       norm_momentum: 0.99
       use_sync_bn: true
   train_data:
-    tfds_data_dir: '~/tensorflow_datasets'
     tfds_name: 'coco'
     tfds_split: 'train'
     drop_remainder: true
@@ -27,7 +26,6 @@ task:
     input_path: ''
     is_training: true
   validation_data:
-    tfds_data_dir: '~/tensorflow_datasets'
     tfds_name: 'coco'
     tfds_split: 'validation'
     drop_remainder: true
