@@ -1,4 +1,4 @@
-## How to Download Your Datasets
+## How to Download Datasets in TensorFlow-Datasets
 
 This document provides a brief tutorial on downloading COCO and Imagenet2012 in TensorFlow-Datasets
 
