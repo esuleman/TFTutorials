@@ -3,13 +3,20 @@
 This tutorial requires:
 
 - Python 3.6 - 3.8.7
-- TensorFlow 2.4
+- TensorFlow 2.4 - 2.5 nightly
 
-and the requirements highlighted in [requirements.txt](https://github.com/tensorflow/models/blob/master/official/requirements.txt).
+### Option 1: Installing TensorFlow Models nightly from PyPI (recommended)
 
-## Downloading the TensorFlow Models Repository
+In terminal, execuate the following command. It will automatically install all of the requirements needed
+for your version of Python and will install TensorFlow nightly.
 
-In terminal, execute the following two commands. 
+```bash
+pip install tf-models-nightly
+```
+
+### Option 2: Downloading the TensorFlow Models Repository manually
+
+In terminal, execute the following two commands.
 
 ```bash
 cd ~
