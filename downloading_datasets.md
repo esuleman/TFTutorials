@@ -9,7 +9,7 @@ pip install tensorflow
 pip install tensorflow-datasets
 ```
 
-TensorFlow-Datasets allows you to download and store datasets using the provided load() function. To download COCO, we will first need to activate the Python Console. Once you're there, run the following two commands.
+TensorFlow-Datasets allows you to download and store datasets using the provided **load()** function. To download COCO, we will first need to activate the Python Console. Once you're there, run the following two commands.
 
 ```python
 import tensorflow_datasets as tfds
@@ -31,10 +31,11 @@ You will need to register for an account and get a valid ID. Once you get an ID,
 export PATH_TO_TFDS=<Path to tensorflow_datasets directory>
 export DOWNLOADS_DOWNLOAD_DIR=$PATH_TO_TFDS/downloads
 export MANUAL_DOWNLOAD_DIR=$PATH_TO_TFDS/downloads/manual
+export ID=**<Your ID here>**
 
-wget http://image-net.org/challenges/LSVRC/2012/dd31405981ef5f776aa17412e1f0c112/ILSVRC2012_img_train.tar
-wget http://image-net.org/challenges/LSVRC/2012/dd31405981ef5f776aa17412e1f0c112/ILSVRC2012_img_test.tar
-wget http://image-net.org/challenges/LSVRC/2012/dd31405981ef5f776aa17412e1f0c112/ILSVRC2012_img_val.tar
+wget -c http://image-net.org/challenges/LSVRC/2012/$ID/ILSVRC2012_img_train.tar -O $MANUAL_DOWNLOAD_DIR/ILSVRC2012_img_train.tar
+wget -c http://image-net.org/challenges/LSVRC/2012/$ID/ILSVRC2012_img_test.tar -O $MANUAL_DOWNLOAD_DIR/ILSVRC2012_img_test.tar
+wget -c http://image-net.org/challenges/LSVRC/2012/$ID/ILSVRC2012_img_val.tar -O $MANUAL_DOWNLOAD_DIR/ILSVRC2012_img_val.tar
 
 python3 -m tensorflow_datasets.scripts.download_and_prepare --datasets=imagenet2012 --data_dir=$PATH_TO_TFDS --download_dir=$DOWNLOADS_DOWNLOAD_DIR --manual_dir=$MANUAL_DOWNLOAD_DIR
 ```

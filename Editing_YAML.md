@@ -1,4 +1,4 @@
-## Editing YAML file
+## Editing the config file
 
 In the repository we provided a generic YAML file to use on any TFDS dataset. You can fill in the empty fields with your specifications or remove them if you would like to use the default values.
 
