@@ -1,6 +1,6 @@
 ## TensorFlow Vision API with TensorFlow-Datasets(TFDS)
 
-This document provides a brief intro of the usage of builtin command-line tools to run experiements 
+This document provides a brief intro of the usage of builtin command-line tools to run experiments 
 in the TensorFlow Vision API with TFDS.
 
 ## Installation
